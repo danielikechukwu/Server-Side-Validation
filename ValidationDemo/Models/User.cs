@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using ValidationDemo.Validators;
 
 namespace ValidationDemo.Models
 {
@@ -20,6 +21,7 @@ namespace ValidationDemo.Models
 
         [Required(ErrorMessage = "DateOfBirth is required")]
         [DataType(DataType.DateTime)]
+        [AgeValidation(18, 99)]
         public DateTime DateOfBirth { get; set; }
 
         [Range(18, 99, ErrorMessage = "Age must be between 18 and 99.")]
